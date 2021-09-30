@@ -1,3 +1,4 @@
+prologue,"Самоаудит полезен для тех, кто только\-только начинает разбираться с цифровой безопасностью\. Советы бота лучше воспринимать как приглашение к исследованию, нежели аксиому\."
 question1,Разблокировка экрана по коду?
 answer1.1,Да
 comment1.1,"✅ Отлично\! Блокировка экрана оберегает устройство от людей, которые могут воспользоваться устройством, когда ты не рядом\. Установи так, чтобы экран блокировался и открывался кодом\! Распознавание лица и пальца – это хорошо, но лучше – код\."
@@ -29,6 +30,8 @@ epilogue,"Дополнительные материалы:
 [Выбор средств цифровой защиты](https://ssd.eff.org/ru/module/%D0%B2%D1%8B%D0%B1%D0%BE%D1%80-%D1%81%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2-%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BE%D0%B9-%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B)
 [Создание надёжных паролей](https://ssd.eff.org/ru/module/%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B0%D0%B4%D1%91%D0%B6%D0%BD%D1%8B%D1%85-%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D0%B5%D0%B9)
 [Семь шагов к цифровой безопасности](https://ssd.eff.org/ru/module/%D1%81%D0%B5%D0%BC%D1%8C-%D1%88%D0%B0%D0%B3%D0%BE%D0%B2-%D0%BA-%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BE%D0%B9-%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8)
-[Пособие для гражданских активистов и независимых журналистов	](https://hrdco.org/wp-content/uploads/Bezopasnost-broshyura-Sergej-Smirnov.pdf)
+[Пособие для гражданских активистов и независимых журналистов        ](https://hrdco.org/wp-content/uploads/Bezopasnost-broshyura-Sergej-Smirnov.pdf)
 [KeePassXС – менеджер паролей](https://safe.roskomsvoboda.org/keepassx/)
-[Bitwarden: храните пароли безопасно](https://safe.roskomsvoboda.org/bitwarden/) "
+[Bitwarden: храните пароли безопасно](https://safe.roskomsvoboda.org/bitwarden/) 
+
+Пройди дополнительные тренировки по цифровой безопасности на сайте проекта [Секьюрно](https://securno.org/)"
