@@ -126,7 +126,7 @@ def read_poll_config(node):
 
 
 
-quizzes  = ['Проверь себя (Quiz)']
+quizzes  = ['Проверь себя (Квиз-разминка)']
 
 with open('conf/audit.conf', encoding='utf-8') as f:
     read_poll_config(json.load(f))
@@ -155,7 +155,8 @@ def show_start_menu(chat_id, username = ''):
     session.reset()
     
     start_menu = types.ReplyKeyboardMarkup(True, True)
-    start_menu.row('Проверь себя (Quiz)', 'Критические ситуации', 'Самоаудит')
+    start_menu.row('Проверь себя (Квиз-разминка)', 'Критические ситуации')
+    start_menu.row( 'Самоаудит')
     
     if username in ADMINS:
         start_menu.row('Показать статистику') #, 'Сбросить статистику')
@@ -191,8 +192,8 @@ def show_audit_menu(message):
 
 @bot.message_handler(func= lambda msg: msg.text == 'Критические ситуации', content_types=['text'])
 def show_emergency_menu(message):
-    gif = 'https://media.giphy.com/media/Tdpbuz8KP0EpQfJR3T/giphy.gif'
-    bot.send_animation(message.chat.id, gif)
+    #gif = 'https://media.giphy.com/media/Tdpbuz8KP0EpQfJR3T/giphy.gif'
+    #bot.send_animation(message.chat.id, gif)
     
     critical_menu = types.ReplyKeyboardMarkup(True, True)
     even = False
@@ -377,6 +378,8 @@ def go_next(message, this_is_callback=True):
                 bot.send_message(chat_id = user_id, text = rez, parse_mode='MarkdownV2')
             
             else:
+                delimiter = ' \n '
+                
                 poll_answers = session.poll_answers
                 for a in poll_answers:
                     row = data.iloc[a['level']].to_dict() 
@@ -384,15 +387,16 @@ def go_next(message, this_is_callback=True):
                     raw_comment = row['comment{0}'.format(a['answer'])]
                     comment = raw_comment if raw_comment is not np.nan else 'отлично\!'
 
-                    curr_line = '{q} \n\n*Твой ответ*: {a} \n\n*Наш комментарий*: {recipe} \n \n \n'.format(q= row['mkdwn_question'],
+                    curr_line = '🌿: {q} \n*__Твой ответ__*: {a} \n*__Наш комментарий__*: {recipe} {delimiter}'.format(q= row['mkdwn_question'],
                         a = row['mkdwn_answer{0}'.format(a['answer'])],
-                        recipe = comment)
+                        recipe = comment,
+                        delimiter = delimiter)
                     rez = rez + '\n' + curr_line
                 
                 part = rez
                 while len(rez.strip())> 0:
                     part = rez[:4000]
-                    pos = part.rfind('\n \n \n')
+                    pos = part.rfind(delimiter)
                     part = rez[:pos]
                     rez = rez[(pos+5):]#перенос строки не учитываем
                     bot.send_message(chat_id = user_id, text = part, parse_mode='MarkdownV2', disable_web_page_preview=True) 
