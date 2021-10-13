@@ -6,7 +6,7 @@ import random
 import pandas as pd
 import numpy as np
 import secrets
-from config import TOKEN, USE_WEBHOOK, URL, ADMINS
+from config import TOKEN, USE_WEBHOOK, URL, ADMINS, ABOUT_TEXT
 
 
 import os
@@ -126,7 +126,7 @@ def read_poll_config(node):
 
 
 
-quizzes  = ['Проверь себя (Квиз-разминка)']
+quizzes  = ['Квиз-разминка']
 
 with open('conf/audit.conf', encoding='utf-8') as f:
     read_poll_config(json.load(f))
@@ -149,13 +149,24 @@ def menu(message):
     show_start_menu(message.from_user.id, message.from_user.username)
 
 
+@bot.message_handler(commands=['about'])
+def menu(message):
+    bot.send_message(chat_id = message.from_user.id, 
+        text = ABOUT_TEXT, 
+        parse_mode='MarkdownV2', 
+        disable_web_page_preview=True) 
+
+    show_start_menu(message.from_user.id, message.from_user.username)
+
+
+
 def show_start_menu(chat_id, username = ''):
     
     session  = Session.get_by_uid(chat_id)
     session.reset()
     
     start_menu = types.ReplyKeyboardMarkup(True, True)
-    start_menu.row('Проверь себя (Квиз-разминка)', 'Критические ситуации')
+    start_menu.row('Квиз-разминка', 'Критические ситуации')
     start_menu.row( 'Самоаудит')
     
     if username in ADMINS:
